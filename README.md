@@ -6,25 +6,23 @@ This project focuses on modeling and forecasting the volatility of NIFTY 50 stoc
 
 ## Objectives
 
-Perform Exploratory Data Analysis (EDA) on NIFTY 50 closing prices.
+Fetch and visualize  NIFTY 50 closing prices  using Yahoo Finance.
 
 Test for stationarity using the Augmented Dickey-Fuller (ADF) test.
 
 Compute log returns for better time series modeling.
 
-Fit ARIMA (2,0,2) and GARCH (1,1), GARCH (2,1), GARCH (1,2) models to capture volatility.
+Fit ARIMA (2,0,2) and GARCH (1,1), GARCH (2,1), GARCH (1,2), EGARCH(1,1) , GJR-GARCH(1,1) models to capture volatility.
 
 Compare models using AIC and BIC values to determine the best fit.
 
-Forecast future volatility and evaluate model performance using Mean Absolute Error (MAE).
-
-Visualize actual vs. forecasted volatility.
+Forecast future volatility and evaluate model performance.
 
 ## Dataset
 
 Source: NIFTY 50 stock market index.
 
-Timeframe: 2020 - 2025.
+Timeframe: 2018 - 2024.
 
 Key Columns: Date, Open, High, Low, Close, Volume.
 
@@ -38,42 +36,31 @@ Remove unnecessary columns and set date as index.
 
 Convert closing price to a time series format.
 
-### 2. Exploratory Data Analysis (EDA)
-
-Plot the NIFTY 50 closing prices over time.
-
-Compute log returns to stabilize variance.
-
-Plot ACF and PACF for log returns to identify correlations.
-
-### 3. Stationarity Check
+### 2. Stationarity Check
 
 Apply ADF test on closing prices and log returns.
 
 Differencing applied if necessary to achieve stationarity.
 
-### 4. Modeling
+### 3. Modeling
 
 ARIMA Model
 
-Fit ARIMA (2,0,2) to model time series trends.
+Fit ARIMA (1,0,1) to model time series trends.
 
 Evaluate model using AIC and BIC values.
 
 GARCH Models
 
-Fit GARCH(1,1), GARCH(2,1), and GARCH(1,2) to capture volatility clustering.
+Fit GARCH(1,1), GARCH(2,1), GARCH(1,2), EGARCH(1,1) and GJR-GARCH(1,1) to capture volatility clustering.
 
 Compare AIC and BIC values to determine the best model.
 
-### 5. Forecasting and Evaluation
+### 2. Forecasting and Evaluation
 
 Forecast next 30 days volatility using the best GARCH model.
 
-Compute Mean Absolute Error (MAE) for model evaluation.
-
-Visualize Actual vs. Forecasted Volatility.
-
+Compute Mean Absolute Error (MAE), Root Mean Error(RME) and Root Mean Square Error(RMSE) for model evaluation.
 
 ## Conclusion
 
@@ -84,8 +71,6 @@ The model successfully captures volatility clustering and performs well within e
 The forecasted volatility closely follows actual values, making it useful for risk analysis and financial decision-making.
 
 ## Future Work
-
-Implement EGARCH and GJR-GARCH for asymmetry in volatility.
 
 Test on alternative datasets (e.g., S&P 500, crypto markets).
 
